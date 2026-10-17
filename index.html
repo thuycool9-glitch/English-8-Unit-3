@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English 8 – Unit 3: Teenagers – 150 Challenges</title>
+<style>
+:root{
+  --accent:#5B4BD6; --ink:#1f2540; --muted:#5d6486; --bg1:#e9edff; --bg2:#fff1f7; --card:#ffffff;
+  --ok:#0e9f6e; --ok-bg:#e4f8ef; --bad:#d9480f; --bad-bg:#fff0e6; --line:#d9ddf2; --radius:18px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;font-size:18px;line-height:1.5;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2)) fixed;transition:background .3s}
+#app{max-width:940px;margin:0 auto;padding:16px}
+.screen{display:none}.screen.active{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 10px 30px rgba(40,50,120,.12);padding:24px;border:1px solid var(--line)}
+button{font:inherit;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 26px;border:0;border-radius:14px;
+  background:var(--accent);color:#fff;font-weight:700;letter-spacing:.3px;box-shadow:0 5px 0 rgba(0,0,0,.18);transition:transform .08s,box-shadow .08s,opacity .2s}
+.btn:hover{filter:brightness(1.08)}.btn:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--accent);border:2px solid var(--accent);box-shadow:none}
+.btn.small{min-height:40px;padding:6px 14px;font-size:15px;border-radius:12px;box-shadow:none}
+.btn:focus-visible,.opt:focus-visible,.chip:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #ffb703;outline-offset:2px}
+/* ---------- start ---------- */
+.hero{text-align:center}
+.hero .badge{display:inline-block;background:#fff3cd;color:#8a5a00;font-weight:700;padding:4px 14px;border-radius:99px;font-size:15px}
+.hero h1{font-size:clamp(28px,6vw,46px);line-height:1.15;margin:12px 0 6px;color:var(--accent)}
+.hero .sub{font-size:clamp(17px,3.5vw,21px);color:var(--muted);margin:0 0 18px;font-weight:600}
+.count{display:inline-flex;align-items:baseline;gap:10px;background:linear-gradient(135deg,#5B4BD6,#C7307C);color:#fff;border-radius:16px;padding:8px 22px;margin:6px 0 18px}
+.count b{font-size:40px;line-height:1}
+.field{max-width:420px;margin:0 auto 16px;text-align:left}
+.field label{font-weight:700;font-size:16px}
+.field input{width:100%;font:inherit;padding:12px 14px;border:2px solid var(--line);border-radius:12px;margin-top:4px}
+.howto{text-align:left;background:#f6f7ff;border:1px dashed #b9bff0;border-radius:14px;padding:12px 18px;margin:18px auto 0;max-width:640px;font-size:16px}
+.howto ul{margin:6px 0 0;padding-left:20px}
+.rounds-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:14px 0}
+.rounds-grid div{background:#f6f7ff;border-radius:12px;padding:8px;font-size:14px;font-weight:600;text-align:center;border-bottom:4px solid var(--c)}
+.row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
+/* ---------- intro ---------- */
+.intro{text-align:center;padding:36px 20px}
+.intro .big{font-size:64px}
+.intro h2{font-size:clamp(24px,5vw,34px);margin:6px 0;color:var(--accent)}
+/* ---------- game ---------- */
+.topbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:10px}
+.pill{background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-weight:700;font-size:15px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.pill.accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+.progress{height:12px;background:#dfe3f7;border-radius:99px;overflow:hidden;margin-bottom:14px}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),#ffb703);border-radius:99px;transition:width .4s}
+.qhead{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--muted);font-weight:700;font-size:15px;margin-bottom:8px}
+.qtext{font-size:clamp(19px,3.6vw,23px);font-weight:700;margin:6px 0 16px;overflow-wrap:anywhere}
+.qtext u{text-decoration-thickness:3px;text-underline-offset:3px;color:var(--accent)}
+.opt u{text-decoration-thickness:3px;text-underline-offset:3px}
+.pic{max-width:300px;margin:0 auto 14px;background:#f2f5ff;border-radius:16px;padding:10px;border:2px solid var(--line)}
+.pic svg{width:100%;height:auto;display:block}
+details.passage{background:#fffbea;border:1px solid #f0dc8a;border-radius:14px;padding:8px 16px;margin-bottom:14px}
+details.passage summary{cursor:pointer;font-weight:700;color:#8a5a00;min-height:36px;display:flex;align-items:center}
+details.passage .ptext{font-size:16.5px;max-height:320px;overflow:auto;padding:4px 6px 8px 0}
+details.passage h4{margin:8px 0 2px;color:#8a5a00}
+details.passage p{margin:6px 0}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;width:100%;min-height:56px;padding:10px 14px;border:2px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);font-weight:600;transition:border-color .15s,background .15s,transform .08s;overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--accent);background:#f6f4ff}
+.opt .letter{flex:none;width:34px;height:34px;border-radius:10px;background:#eceeff;color:var(--accent);display:grid;place-items:center;font-weight:800}
+.opt.sel{border-color:var(--accent);background:#efecff}
+.opt.sel .letter{background:var(--accent);color:#fff}
+.opt.right{border-color:var(--ok);background:var(--ok-bg)}.opt.right .letter{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}.opt.wrong .letter{background:var(--bad);color:#fff}
+.opts.two{grid-template-columns:1fr 1fr}
+@media (max-width:520px){.opts.two{grid-template-columns:1fr}}
+.fill input{width:100%;font:inherit;font-size:20px;font-weight:700;padding:14px;border:2px solid var(--line);border-radius:14px;text-align:center}
+.fill input.right{border-color:var(--ok);background:var(--ok-bg)}.fill input.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.hint{color:var(--muted);font-size:15px;margin:6px 0 10px}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center;padding:8px 10px;border:2px solid var(--line);border-radius:14px;margin-bottom:8px;background:#fff}
+.mrow .l{font-weight:700;overflow-wrap:anywhere}
+.mrow select{font:inherit;font-size:16px;padding:10px;border-radius:10px;border:2px solid var(--line);width:100%;min-height:46px;background:#fff}
+.mrow.right{border-color:var(--ok);background:var(--ok-bg)}.mrow.wrong{border-color:var(--bad);background:var(--bad-bg)}
+@media (max-width:560px){.mrow{grid-template-columns:1fr}}
+.area{min-height:64px;border:2px dashed #aab1ea;border-radius:14px;padding:8px;display:flex;flex-wrap:wrap;gap:8px;background:#f8f9ff;margin-bottom:10px;align-content:flex-start}
+.area.right{border-color:var(--ok);background:var(--ok-bg)}.area.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.chip{min-height:44px;padding:8px 14px;border:2px solid var(--accent);background:#fff;color:var(--ink);border-radius:12px;font-weight:600;font-size:17px;box-shadow:0 3px 0 rgba(0,0,0,.1);text-align:left;overflow-wrap:anywhere}
+.chip:hover:not(:disabled){background:#efecff}
+.bank{display:flex;flex-wrap:wrap;gap:8px;min-height:50px}
+.catrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:8px 10px;border:2px solid var(--line);border-radius:14px;margin-bottom:8px;background:#fff}
+.catrow .t{font-weight:700;overflow-wrap:anywhere}
+.catrow .bs{display:flex;gap:6px}
+.catrow .bs button{min-height:44px;min-width:96px;padding:6px 10px;border-radius:10px;border:2px solid var(--line);background:#fff;font-weight:700;color:var(--ink)}
+.catrow .bs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.catrow.right{border-color:var(--ok);background:var(--ok-bg)}.catrow.wrong{border-color:var(--bad);background:var(--bad-bg)}
+@media (max-width:560px){.catrow{grid-template-columns:1fr}.catrow .bs button{flex:1}}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;justify-content:space-between;align-items:center}
+.msg{color:var(--bad);font-weight:700;min-height:24px;font-size:16px}
+.fb{margin-top:16px;border-radius:14px;padding:14px 18px;border:2px solid}
+.fb.ok{background:var(--ok-bg);border-color:var(--ok);animation:pop .4s}
+.fb.no{background:var(--bad-bg);border-color:var(--bad);animation:shake .4s}
+.fb h3{margin:0 0 6px;font-size:21px}
+.fb.ok h3{color:#07714f}.fb.no h3{color:#a63a08}
+.fb p{margin:6px 0;font-size:17px}
+@keyframes pop{0%{transform:scale(.96)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.star{position:fixed;top:-30px;font-size:26px;pointer-events:none;z-index:99;animation:fall 1.4s ease-in forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(360deg);opacity:.2}}
+@media (prefers-reduced-motion:reduce){.star{display:none}.screen.active,.fb{animation:none}}
+/* ---------- result ---------- */
+.res-title{text-align:center}
+.res-title h2{font-size:clamp(26px,6vw,40px);margin:4px 0;color:var(--accent)}
+.res-title .grade{font-size:clamp(22px,5vw,32px);font-weight:800;color:#C7307C}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}
+.stat{background:#f6f7ff;border-radius:14px;padding:12px;text-align:center;border:1px solid var(--line)}
+.stat b{display:block;font-size:26px;color:var(--accent)}
+.stat span{font-size:14px;color:var(--muted);font-weight:600}
+table.rt{width:100%;border-collapse:collapse;margin:10px 0;font-size:16px}
+table.rt th,table.rt td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+table.rt td.n{text-align:right;font-weight:700}
+.bar{height:10px;border-radius:99px;background:#e3e6f8;overflow:hidden;min-width:80px}.bar i{display:block;height:100%;background:var(--c)}
+.tags{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.tag{padding:8px 14px;border-radius:12px;font-weight:700;font-size:16px}
+.tag.best{background:var(--ok-bg);color:#07714f}.tag.weak{background:#fff4d6;color:#8a5a00}
+.encourage{text-align:center;font-size:19px;font-weight:600;margin:12px 0}
+.rv{border:2px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;background:#fff}
+.rv .q{font-weight:700}.rv .a{color:#07714f;font-weight:700;margin-top:6px}.rv .y{color:#a63a08;font-weight:600}
+.rv .e{color:var(--muted);font-size:16px;margin-top:4px}
+.print-only{display:none}
+@media print{
+  body{background:#fff}#app{max-width:none;padding:0}
+  .screen{display:none!important}#screen-result{display:block!important}
+  .no-print{display:none!important}.print-only{display:block}
+  .card{box-shadow:none;border:0}
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- START -->
+<section id="screen-start" class="screen active">
+  <div class="card hero">
+    <span class="badge">GLOBAL SUCCESS · GRADE 8</span>
+    <h1>ENGLISH 8 – UNIT 3: TEENAGERS</h1>
+    <p class="sub">150 Challenges – Learn, Play and Improve</p>
+    <div class="count"><b>150</b><span>câu hỏi · 6 vòng chơi</span></div>
+    <div class="field">
+      <label for="name">Tên của em / Your name</label>
+      <input id="name" type="text" maxlength="40" placeholder="Nhập tên của em..." autocomplete="off">
+    </div>
+    <div class="row">
+      <button id="btnStart" class="btn">▶ START GAME</button>
+      <button class="btn ghost soundBtn" type="button" aria-label="Bật/tắt âm thanh">🔊 Âm thanh: Bật</button>
+    </div>
+    <div class="rounds-grid" id="roundsGrid"></div>
+    <div class="howto">
+      <b>Cách chơi:</b>
+      <ul>
+        <li>Mỗi vòng có 25 câu. Trả lời đúng được <b>10 điểm</b>, trả lời sai không bị trừ điểm. Tổng điểm tối đa: <b>1.500</b>.</li>
+        <li>Chọn hoặc hoàn thành đáp án, bấm <b>SUBMIT ANSWER</b>, rồi bấm <b>NEXT QUESTION</b>.</li>
+        <li>Mỗi câu chỉ được nộp một lần. Nếu sai, em sẽ thấy đáp án đúng và lời giải thích.</li>
+        <li>Dạng nối, sắp xếp, phân loại chỉ tính điểm khi <b>toàn bộ</b> câu trả lời đúng.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ROUND INTRO -->
+<section id="screen-intro" class="screen">
+  <div class="card intro">
+    <div class="big" id="introIcon"></div>
+    <h2 id="introTitle"></h2>
+    <p id="introDesc" style="color:var(--muted);font-weight:600"></p>
+    <p><span class="pill" id="introMeta"></span></p>
+    <button id="btnGo" class="btn">LET'S GO! ▶</button>
+  </div>
+</section>
+
+<!-- GAME -->
+<section id="screen-game" class="screen">
+  <div class="topbar">
+    <div class="row">
+      <button id="btnHome" class="btn small ghost" type="button">🏠 Home</button>
+      <button class="btn small ghost soundBtn" type="button" aria-label="Bật/tắt âm thanh">🔊</button>
+    </div>
+    <div class="row">
+      <span class="pill" id="gName"></span>
+      <span class="pill accent">⭐ <span id="gScore">0</span> / 1500</span>
+    </div>
+  </div>
+  <div class="progress" aria-hidden="true"><i id="gBar"></i></div>
+  <div class="card">
+    <div class="qhead"><span id="gRound"></span><span id="gNum"></span></div>
+    <div id="qBox"></div>
+    <div class="actions">
+      <span class="msg" id="gMsg" role="alert"></span>
+      <div class="row">
+        <button id="btnSubmit" class="btn">SUBMIT ANSWER</button>
+        <button id="btnNext" class="btn" style="display:none">NEXT QUESTION ▶</button>
+      </div>
+    </div>
+    <div id="gFb" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section id="screen-result" class="screen">
+  <div class="card">
+    <div class="res-title">
+      <div style="font-size:54px">🏆</div>
+      <h2>ENGLISH 8 – UNIT 3: TEENAGERS</h2>
+      <div id="rName" style="font-weight:700;font-size:20px"></div>
+      <div class="grade" id="rGrade"></div>
+    </div>
+    <div class="encourage" id="rMsg"></div>
+    <div class="stats" id="rStats"></div>
+    <table class="rt" id="rTable"></table>
+    <div class="tags" id="rTags"></div>
+    <div class="row no-print" style="margin-top:18px">
+      <button id="btnReview" class="btn">REVIEW WRONG ANSWERS</button>
+      <button id="btnAgain" class="btn">PLAY AGAIN</button>
+      <button id="btnRestart" class="btn ghost">RESTART GAME</button>
+      <button id="btnPrint" class="btn ghost">🖨 PRINT RESULTS</button>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEW -->
+<section id="screen-review" class="screen">
+  <div class="card">
+    <h2 style="margin-top:0;color:var(--accent)">Review wrong answers</h2>
+    <div id="rvList"></div>
+    <div class="row"><button id="btnBackRes" class="btn">◀ Back to results</button></div>
+  </div>
+</section>
+
+</div>
+<script>
+/* ===================== QUESTION BANK (150) ===================== */
+const Q = []; let _id = 0;
+const mc    = (r,q,options,ans,exp,x={}) => Q.push({id:++_id,round:r,type:"mc",q,options,ans,exp,...x});
+const tf    = (r,q,ans,exp,x={}) => Q.push({id:++_id,round:r,type:"tf",q,ans,exp,...x});
+const fill  = (r,q,ans,exp,hint,x={}) => Q.push({id:++_id,round:r,type:"fill",q,ans,exp,hint,...x});
+const match = (r,q,pairs,exp,x={}) => Q.push({id:++_id,round:r,type:"match",q,pairs,exp,...x});
+const order = (r,q,tokens,exp,x={}) => Q.push({id:++_id,round:r,type:"order",q,tokens,exp,...x});
+const cat   = (r,q,cats,items,exp,x={}) => Q.push({id:++_id,round:r,type:"cat",q,cats,items,exp,...x});
+
+/* ---------- Reading passages ---------- */
+const PASSAGES = {
+  cloze: { title: "Teen stress – passage with blanks", html:
+`<p>Every teenager feels <b>(1) ______</b> at times. There are different kinds of troubles, such as academic pressures, family issues and difficulties with peers. We must say that they are the main things that teens have to <b>(2) ______</b> with on a daily basis. None of us can avoid stress completely, but <b>(3) ______</b> give us some advice about things we can do to reduce our stress levels.</p>
+<p>Firstly, it's important to exercise regularly, and avoid eating <b>(4) ______</b> food. It is also important to take time out every day to do something that makes you happy. It may be listening to your favourite music, talking to a friend, or <b>(5) ______</b> time with a pet.</p>
+<p>It is always helpful to talk about your problems with others, whether that's a friend, your parents or a teacher. As the saying goes, “A problem shared is a problem halved!”</p>` },
+  britain: { title: "What is it like being a teenager in Britain?", html:
+`<h4>School</h4><p>British teenagers spend most of their time at school. Students in Britain can leave school at sixteen (grade 11). This is also the age when most students take their first important exams, the GCSE (General Certificate of Secondary Education). Most teens take between 5–10 subjects, which means a lot of studying. They are spending more time on homework than teenagers ever before. Forget watching TV – teenagers in Britain now spend 2–3 hours on homework after school.</p>
+<h4>School uniform</h4><p>Visit almost any school in Britain and the first thing you'll notice is the school uniform. Although school uniform has its advantages, when they are 15 or 16 most teenagers are tired of wearing it. When there is more than one school in a town, school uniforms can highlight differences between schools. In London there are many cases of bullying and fighting between pupils from different schools.</p>
+<h4>Clothes and looks</h4><p>In Britain, some teens judge you by the shirt or trainers you are wearing, and 40% of British teenagers believe it's important to wear designer labels. If you want to follow the crowd, you need to wear trendy labels. Teenagers in Britain wear fashionable trainers – and the more expensive, the better.</p>` },
+  stress: { title: "Teen stress", html:
+`<p>Teenagers today live in a very competitive world. It is more important than ever to succeed at school if you hope to have a chance in the job market afterwards. It's no wonder that many young people worry about letting down their parents, their peers and themselves. To try to please everyone, they take on too many tasks until it becomes harder and harder to balance homework assignments, parties, sports activities and friends. The result is that young people suffer from stress.</p>
+<p>There are different ways of dealing with stress. Everyone knows that caffeine, in the form of coffee or soft drinks, keeps you awake and alert. But caffeine is a drug which can become addictive. In the end, like other drugs, caffeine only leads to more stress. There are better ways to deal with stress: physical exercise is a good release for stress, because it increases certain chemicals in the brain which calm you down. You have to get enough sleep to avoid stress and to stay healthy and full of energy.</p>
+<p>Another way to avoid stress is to manage your time effectively. It is better to do a few tasks really well than lots of tasks badly. Know your limits and try not to take on too much. Finally, if it all gets beyond your control, don't panic or get hysterical. Find the time to sit down quietly and breathe deeply for ten to twenty minutes. Do this regularly, and it will help you calm down and put things into perspective.</p>` },
+  audio: { title: "Stress and teenagers (audio script)", html:
+`<p>It's very common for young people to feel stressed out from time to time. Stress is a normal part of life and it can even be beneficial in some situations. However, if you're worried that your child is under a lot of stress and it's been going on for a while or is affecting their everyday life, there are things you can do to help them.</p>
+<p><b>Causes of stress for teenagers:</b> Common things that teenagers say cause them stress include: homework and school (especially exams), expectations and pressure to do well at school from parents and family, their social relationships with friends and boyfriends or girlfriends, life challenges such as leaving school or getting into tertiary studies or employment, lack of time – having too much to do, feeling unprepared or overwhelmed, and lack of sleep.</p>
+<p><b>Seek support if necessary.</b> Stress that hangs around for a long period of time can be harmful to your child's health and well-being. If your child has been stressed for a long period of time, or if nothing seems to be helping, it's a good idea to seek some outside help. Have a chat to your family doctor, or consider giving your child an opportunity to talk things over with a counsellor.</p>` }
+};
+
+/* ---------- Picture library (inline SVG, no text) ---------- */
+const IMG = {
+  notification: `<svg viewBox="0 0 200 140" role="img" aria-label="Hình minh họa"><rect x="68" y="6" width="64" height="128" rx="12" fill="#2d3436"/><rect x="74" y="20" width="52" height="100" rx="4" fill="#dfe6e9"/><path d="M100 44c-12 0-17 10-17 21v8l-6 9h46l-6-9v-8c0-11-5-21-17-21z" fill="#fdcb6e" stroke="#e17055" stroke-width="2"/><circle cx="100" cy="98" r="5" fill="#e17055"/><circle cx="122" cy="40" r="10" fill="#d63031"/><rect x="120" y="34" width="4" height="12" rx="2" fill="#fff"/></svg>`,
+  upload: `<svg viewBox="0 0 200 140" role="img" aria-label="Hình minh họa"><circle cx="72" cy="82" r="24" fill="#74b9ff"/><circle cx="104" cy="64" r="34" fill="#74b9ff"/><circle cx="136" cy="84" r="22" fill="#74b9ff"/><rect x="72" y="82" width="64" height="26" fill="#74b9ff"/><polygon points="100,48 128,78 110,78 110,106 90,106 90,78 72,78" fill="#fff"/></svg>`,
+  teamwork: `<svg viewBox="0 0 200 140" role="img" aria-label="Hình minh họa"><polygon points="100,6 104,16 115,17 107,24 109,35 100,29 91,35 93,24 85,17 96,16" fill="#fdcb6e"/><circle cx="52" cy="54" r="13" fill="#fab1a0"/><circle cx="100" cy="48" r="13" fill="#ffeaa7"/><circle cx="148" cy="54" r="13" fill="#81ecec"/><rect x="38" y="70" width="28" height="52" rx="12" fill="#e17055"/><rect x="86" y="64" width="28" height="58" rx="12" fill="#6c5ce7"/><rect x="134" y="70" width="28" height="52" rx="12" fill="#00b894"/><line x1="64" y1="88" x2="88" y2="88" stroke="#fab1a0" stroke-width="9" stroke-linecap="round"/><line x1="112" y1="88" x2="136" y2="88" stroke="#ffeaa7" stroke-width="9" stroke-linecap="round"/></svg>`,
+  stress: `<svg viewBox="0 0 200 140" role="img" aria-label="Hình minh họa"><path d="M64 20q9-14 18 0t18 0 18 0 18 0" fill="none" stroke="#636e72" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="62" r="32" fill="#ffeaa7" stroke="#e1b12c" stroke-width="2"/><circle cx="88" cy="58" r="3.5" fill="#2d3436"/><circle cx="112" cy="58" r="3.5" fill="#2d3436"/><line x1="78" y1="46" x2="94" y2="51" stroke="#2d3436" stroke-width="3" stroke-linecap="round"/><line x1="122" y1="46" x2="106" y2="51" stroke="#2d3436" stroke-width="3" stroke-linecap="round"/><path d="M88 80q6-6 12 0t12 0" fill="none" stroke="#2d3436" stroke-width="3" stroke-linecap="round"/><path d="M138 42q9 12 0 19-9-7 0-19z" fill="#74b9ff"/><rect x="66" y="94" width="68" height="14" rx="7" fill="#6c5ce7"/><rect x="36" y="108" width="128" height="10" rx="3" fill="#b2845b"/><rect x="40" y="90" width="34" height="18" fill="#e17055"/><rect x="44" y="78" width="28" height="12" fill="#0984e3"/></svg>`
+};
+
+/* =========================================================
+   ROUND 1 – VOCABULARY CHALLENGE (25)
+   ========================================================= */
+mc(1,"What does <b>teenager</b> mean?",["thanh thiếu niên","câu lạc bộ","người lãnh đạo","kẻ bắt nạt"],0,"<b>teenager</b> /ˈtiːneɪdʒə(r)/ (n) = thanh thiếu niên. Có thể viết ngắn là <i>teen</i>.");
+mc(1,"<b>School club</b> nghĩa là gì?",["câu lạc bộ học đường","bài kiểm tra giữa kỳ","trang web của trường","làm việc nhóm"],0,"<b>school club</b> = câu lạc bộ học đường. Ví dụ: chess club, language club, sport club, arts and crafts club.");
+mc(1,"Từ nào có nghĩa là “<b>tải lên</b>”?",["upload","update","connect","discuss"],0,"<b>upload</b> = tải lên; <i>update</i> = cập nhật; <i>connect</i> = kết nối; <i>discuss</i> = thảo luận.");
+mc(1,"Cụm <b>log on to</b> nghĩa là gì?",["đăng nhập","kết nối","chia sẻ","kiểm tra"],0,"<b>log on to</b> = đăng nhập. Ví dụ: I log on to my Facebook account.");
+mc(1,"Which word is closest in meaning to <b>concentrate</b>?",["focus","advise","discuss","share"],0,"<b>concentrate</b> /ˈkɒnsntreɪt/ và <b>focus</b> /ˈfəʊkəs/ đều có nghĩa là tập trung.");
+mc(1,"<b>Stress</b> (n) nghĩa là gì?",["sự căng thẳng","sự thông báo","áp lực","sự tập trung"],0,"<b>stress</b> /stres/ (n) = sự căng thẳng. Còn <i>pressure</i> = áp lực.");
+mc(1,"Taking a midterm test can be very ______.",["stressful","stress","stresses","stressing"],0,"Sau <i>be very</i> cần tính từ: <b>stressful</b> (adj) = căng thẳng.");
+mc(1,"I always stay <b>calm</b> in difficult situations. “Calm” nghĩa là gì?",["điềm tĩnh","căng thẳng","thích thú","thân thiện"],0,"<b>calm</b> /kɑːm/ (adj) = điềm tĩnh.");
+mc(1,"<b>Midterm test</b> nghĩa là gì?",["bài kiểm tra giữa kỳ","bài làm trên lớp","cuộc thi đấu","diễn đàn"],0,"<b>midterm test</b> = bài kiểm tra giữa kỳ.");
+mc(1,"<b>Pressure</b> (n) nghĩa là gì?",["áp lực","tài khoản","trang web","bạn đồng trang lứa"],0,"<b>pressure</b> /ˈpreʃə(r)/ = áp lực. Ví dụ: pressure from parents and friends.");
+mc(1,"A social media app that is <b>user-friendly</b> is ______.",["easy and friendly for users","very difficult to use","only for teachers","always stressful"],0,"<b>user-friendly</b> (adj) = thân thiện với người dùng, dễ sử dụng.");
+mc(1,"<b>Enjoyable</b> (adj) nghĩa là gì?",["thích thú, thú vị","căng thẳng","điềm tĩnh","giữa kỳ"],0,"<b>enjoyable</b> /ɪnˈdʒɔɪəbl/ = thích thú, thú vị. Ví dụ: Instagram is enjoyable.");
+mc(1,"A <b>competition</b> is ______.",["a contest in which people try to win","a place to keep your money","a message from a website","a group of close friends"],0,"<b>competition</b> /ˌkɒmpəˈtɪʃn/ = cuộc thi đấu.");
+mc(1,"<b>Peer</b> (n) nghĩa là gì?",["người ngang hàng, bạn đồng trang lứa","người lãnh đạo","kẻ bắt nạt","huấn luyện viên"],0,"<b>peer</b> /pɪə(r)/ = bạn đồng trang lứa. Ví dụ: difficulties with peers.");
+mc(1,"A <b>bully</b> is a person who ______.",["hurts or scares weaker people","teaches a school club","shares photos online","calms other people down"],0,"<b>bully</b> /ˈbʊli/ (n) = kẻ bắt nạt.");
+mc(1,"<b>Schoolwork</b> nghĩa là gì?",["bài làm trên lớp","làm việc nhóm","sự thông báo","tài khoản"],0,"<b>schoolwork</b> = bài làm trên lớp (khác với <i>teamwork</i> = làm việc nhóm).");
+mc(1,"<b>Check</b> (v) nghĩa là gì?",["kiểm tra","huấn luyện","khuyên bảo","tải lên"],0,"<b>check</b> /tʃek/ = kiểm tra. Ví dụ: checking social media accounts.");
+fill(1,"We ______ the school website to find information about school clubs.",["browse"],"<b>browse</b> /braʊz/ (v) = đọc lướt, tìm (trên mạng). Ví dụ: We browse the school website to find the school activities.","Gợi ý: b _ _ _ _ _ (đọc lướt, tìm trên mạng)");
+fill(1,"Good ______ helps students study better.",["concentration"],"Danh từ của <i>concentrate</i> là <b>concentration</b> (sự tập trung) – theo bảng word form của Unit 3.","Gợi ý: dạng danh từ của “concentrate”");
+mc(1,"Which word matches the picture?",["notification","midterm","peer","bully"],0,"Hình điện thoại có chuông báo là <b>notification</b> /ˌnəʊtɪfɪˈkeɪʃn/ = sự thông báo.",{img:"notification"});
+mc(1,"Which word matches the picture?",["upload","browse","discuss","advise"],0,"Hình đám mây có mũi tên đi lên là <b>upload</b> = tải lên.",{img:"upload"});
+mc(1,"Which word matches the picture?",["teamwork","competition","pressure","leader"],0,"Các bạn nắm tay cùng nhau là <b>teamwork</b> /ˈtiːmwɜːk/ = làm việc nhóm.",{img:"teamwork"});
+mc(1,"Which word matches the picture?",["stress","calm","enjoyable","teamwork"],0,"Bạn học sinh lo lắng bên chồng sách là <b>stress</b> = sự căng thẳng.",{img:"stress"});
+match(1,"Nối từ với nghĩa tiếng Việt.",[["coach","huấn luyện"],["advise","khuyên, khuyên bảo"],["discuss","thảo luận"],["connect","kết nối"],["account","tài khoản"]],"coach = huấn luyện; advise = khuyên; discuss = thảo luận; connect = kết nối; account = tài khoản.");
+match(1,"Nối từ với nghĩa tiếng Việt.",[["forum","diễn đàn"],["website","trang web"],["media","phương tiện truyền thông"],["leader","người lãnh đạo"],["teamwork","làm việc nhóm"]],"forum = diễn đàn; website = trang web; media = (phương tiện) truyền thông; leader = người lãnh đạo; teamwork = làm việc nhóm.");
+
+/* =========================================================
+   ROUND 2 – GRAMMAR BATTLE (25)
+   ========================================================= */
+const SIMPLE_Q = "Choose the <b>simple sentence</b>.";
+mc(2,SIMPLE_Q,["I cook and wash the dishes.","I cook, and she washes the dishes."],0,"Câu A chỉ có một chủ ngữ <i>I</i> và hai động từ → <b>câu đơn</b>. Câu B có hai mệnh đề độc lập (I cook / she washes) → câu ghép.");
+mc(2,SIMPLE_Q,["They went to Hoi An and bought lots of souvenirs.","They went to Hoi An, but they didn't buy any souvenirs."],0,"Câu A: một chủ ngữ <i>They</i> + hai động từ → câu đơn. Câu B có hai mệnh đề, nối bằng <i>but</i> → câu ghép.");
+mc(2,SIMPLE_Q,["Mai and her family visited their relatives in Nha Trang last week.","Mai and her family love Nha Trang, so they went to Nha Trang last week."],0,"Câu A có chủ ngữ ghép (Mai and her family) nhưng chỉ một mệnh đề độc lập → câu đơn.");
+mc(2,SIMPLE_Q,["You can take this medicine, or you can drink hot ginger tea.","You can take this medicine."],1,"Câu B chỉ có một mệnh đề độc lập → câu đơn. Câu A có hai mệnh đề nối bằng <i>or</i> → câu ghép.");
+mc(2,SIMPLE_Q,["She eats healthily, so she is very strong.","She eats healthily and does exercises regularly."],1,"Câu B: một chủ ngữ + hai động từ → câu đơn. Câu A có hai mệnh đề nối bằng <i>so</i> → câu ghép.");
+mc(2,SIMPLE_Q,["Water boils at 100 degrees Celsius.","Water boiled, and he poured it into the kettle."],0,"Câu A chỉ có một mệnh đề độc lập → câu đơn. Câu B có hai mệnh đề (Water boiled / he poured…) → câu ghép.");
+cat(2,"Phân loại câu: <b>Simple</b> hay <b>Compound</b>?",["Simple sentence","Compound sentence"],[["She is my aunt.",0],["Linda sings and Peter plays the guitar.",1],["Mai and Hoa enjoy playing table tennis.",0],["Nga likes reading, so she bought a lot of books.",1],["I went to Ha Noi and visited some temples and pagodas there.",0],["She has prepared everything for her performance, but she feels nervous.",1]],"Câu đơn = một mệnh đề độc lập (có thể có chủ ngữ ghép hoặc nhiều động từ). Câu ghép = từ hai mệnh đề độc lập trở lên (Linda sings / Peter plays; Nga likes… / she bought…; She has prepared… / she feels…).");
+cat(2,"Phân loại câu: <b>Simple</b> hay <b>Compound</b>?",["Simple sentence","Compound sentence"],[["Thomas speaks Vietnamese fluently.",0],["She is a smart student, and she is an active member of our club.",1],["We go shopping, go to the cinema, and play sport together.",0],["Mary wants to join the school chess club; however, she can't play chess.",1],["An and Nam are my friends.",0],["The teacher is handling the test results; the students are thinking about their marks.",1]],"“We go shopping, go to the cinema, and play sport” chỉ có một chủ ngữ <i>We</i> → câu đơn. Hai mệnh đề độc lập nối bằng <i>and</i>, <i>however</i> hoặc dấu chấm phẩy (;) → câu ghép.");
+tf(2,"In a compound sentence, there is always a comma before the conjunctions <b>and, but, or, so</b>.",true,"Đúng. Theo tài liệu: luôn có dấu phẩy (,) trước liên từ nối hai mệnh đề độc lập.");
+tf(2,"A sentence with one subject and two verbs, like “He wears a white shirt and drives a black motorbike”, is a <b>compound</b> sentence.",false,"Sai. Chỉ có một mệnh đề độc lập (một chủ ngữ He) nên đây là <b>câu đơn</b> có nhiều động từ.");
+tf(2,"“An and Nam are my friends.” is a simple sentence.",true,"Đúng. Câu đơn có thể có chủ ngữ ghép (An and Nam) nhưng vẫn chỉ có một mệnh đề độc lập.");
+mc(2,"My father is an engineer, ______ he often has to work away from home.",["and","or","but","so"],3,"Kết quả của việc làm kỹ sư → <b>so</b> (vì vậy).");
+mc(2,"This year the Mid-Autumn Festival falls on the next Sunday, ______ I can go home and reunite with my family.",["and","or","but","so"],3,"Chỉ kết quả → <b>so</b>, đứng sau dấu phẩy.");
+fill(2,"Would you like to drink milk tea ______ coffee?",["or"],"<b>or</b> (hoặc) dùng để đưa ra sự lựa chọn.","Gợi ý: liên từ chỉ sự lựa chọn (2 chữ cái)");
+mc(2,"I have never joined in a carnival, ______ I am very curious about it.",["and","or","but","so"],2,"Hai ý đối lập (chưa từng tham gia / rất tò mò) → <b>but</b>.");
+mc(2,"Do you want to join us ______ do you want to leave now?",["and","or","but","so"],1,"Câu hỏi lựa chọn giữa hai khả năng → <b>or</b>.");
+mc(2,"I love cats, ______ my mother doesn't allow me to have one.",["and","or","but","so"],2,"Hai ý đối lập → <b>but</b>.");
+fill(2,"The discussion was not exciting, ______ was it informative.",["nor"],"<b>nor</b> = cũng không. Sau <i>nor</i> có đảo ngữ: nor was it informative.","Gợi ý: liên từ có nghĩa “cũng không” (3 chữ cái)");
+mc(2,"She looks shy and skinny, ______ she is a karate athlete.",["or","yet","and","so"],1,"Hai ý trái ngược → <b>yet</b> (tuy thế).");
+mc(2,"Dorothy works ten hours a day, ______ she has time to volunteer at a charity.",["yet","and","nor","so"],0,"Ý đối lập (làm việc nhiều nhưng vẫn có thời gian) → <b>yet</b>.");
+mc(2,"Which sentence has the correct punctuation?",["He was tired, so he went to bed.","He was tired so, he went to bed.","He was tired, he went to bed.","He was tired so he went to bed."],0,"Câu ghép dùng liên từ phải có dấu phẩy <b>trước</b> liên từ: “…, so …”. Câu B đặt dấu phẩy sai chỗ, C thiếu liên từ, D thiếu dấu phẩy.");
+mc(2,"Which conjunction means “<b>cũng không</b>”?",["nor","for","yet","so"],0,"<b>nor</b> = cũng không; <i>for</i> = vì; <i>yet</i> = tuy thế; <i>so</i> = vì vậy.");
+mc(2,"Which conjunction means “<b>vì</b>” (giving a reason)?",["for","or","yet","nor"],0,"<b>for</b> = vì (chỉ lý do) trong câu ghép.");
+mc(2,"Which compound sentence uses a semicolon correctly?",["I travelled to Sa Pa; I took some photographs of terraced fields.","I travelled to Sa Pa; took some photographs of terraced fields.","I travelled to Sa Pa, I took some photographs of terraced fields.","I travelled; to Sa Pa I took some photographs of terraced fields."],0,"Dấu chấm phẩy (;) nối hai mệnh đề độc lập có nghĩa gần gũi. Vế sau của câu A là mệnh đề đầy đủ (I took…).");
+order(2,"Sắp xếp các cụm từ thành một <b>câu ghép</b> hoàn chỉnh.",["Tommy found the folk game interesting,","so","he decided","to join it."],"Tommy found the folk game interesting, so he decided to join it. – hai mệnh đề nối bằng <b>so</b>, có dấu phẩy trước <i>so</i>.");
+
+/* =========================================================
+   ROUND 3 – PRONUNCIATION QUEST (25)
+   ========================================================= */
+const SND = ["/ʊə/","/ɔɪ/"];
+const CATQ = "Phân loại các từ theo âm <b>/ʊə/</b> hoặc <b>/ɔɪ/</b>.";
+cat(3,CATQ,SND,[["tour",0],["coin",1],["poor",0],["boy",1],["ensure",0],["voice",1]],"/ʊə/: tour /tʊə/, poor /pʊə/, ensure /ɪnˈʃʊə/. /ɔɪ/: coin /kɔɪn/, boy /bɔɪ/, voice /vɔɪs/.");
+cat(3,CATQ,SND,[["rural",0],["point",1],["secure",0],["enjoy",1],["mature",0],["spoil",1]],"/ʊə/: rural /ˈrʊərəl/, secure /sɪˈkjʊə/, mature /məˈtʃʊə/. /ɔɪ/: point /pɔɪnt/, enjoy /ɪnˈdʒɔɪ/, spoil /spɔɪl/.");
+cat(3,CATQ,SND,[["boil",1],["tourist",0],["noise",1],["endure",0],["destroy",1],["plural",0]],"/ɔɪ/: boil, noise, destroy. /ʊə/: tourist /ˈtʊərɪst/, endure /ɪnˈdjʊə/, plural /ˈplʊərəl/.");
+cat(3,CATQ,SND,[["detour",0],["poison",1],["obscure",0],["rejoice",1],["furious",0],["toilet",1]],"/ʊə/: detour /ˈdiːtʊə/, obscure /əbˈskjʊə/, furious /ˈfjʊəriəs/. /ɔɪ/: poison /ˈpɔɪzn/, rejoice /rɪˈdʒɔɪs/, toilet /ˈtɔɪlət/.");
+mc(3,"Which word contains the sound <b>/ʊə/</b>?",["boil","poor","coin","voice"],1,"<b>poor</b> /pʊə(r)/ có âm /ʊə/. Các từ còn lại chứa /ɔɪ/.");
+mc(3,"Which word contains the sound <b>/ʊə/</b>?",["toy","noise","tourist","joy"],2,"<b>tourist</b> /ˈtʊərɪst/ có âm /ʊə/. toy, noise, joy chứa /ɔɪ/.");
+mc(3,"Which word contains the sound <b>/ʊə/</b>?",["enjoy","secure","spoil","point"],1,"<b>secure</b> /sɪˈkjʊə/ có âm /ʊə/. Các từ còn lại chứa /ɔɪ/.");
+mc(3,"Which word contains the sound <b>/ʊə/</b>?",["destroy","loyalty","rural","coin"],2,"<b>rural</b> /ˈrʊərəl/ có âm /ʊə/. destroy, loyalty, coin chứa /ɔɪ/.");
+mc(3,"Which word contains the sound <b>/ɔɪ/</b>?",["tour","boy","ensure","mature"],1,"<b>boy</b> /bɔɪ/ có âm /ɔɪ/. Các từ còn lại chứa /ʊə/.");
+mc(3,"Which word contains the sound <b>/ɔɪ/</b>?",["poor","endure","noise","rural"],2,"<b>noise</b> /nɔɪz/ có âm /ɔɪ/.");
+mc(3,"Which word contains the sound <b>/ɔɪ/</b>?",["plural","poison","secure","tourist"],1,"<b>poison</b> /ˈpɔɪzn/ có âm /ɔɪ/.");
+mc(3,"Which word contains the sound <b>/ɔɪ/</b>?",["obscure","detour","furious","employer"],3,"<b>employer</b> /ɪmˈplɔɪə(r)/ có âm /ɔɪ/.");
+mc(3,"In which word is “<b>oo</b>” pronounced /ʊə/?",["poor","food","book","moon"],0,"Dấu hiệu: “oo” được phát âm là /ʊə/ trong từ một âm tiết tận cùng bằng “r”: <b>poor</b> /pʊə(r)/.");
+mc(3,"In which word is “<b>oi</b>” pronounced /ɔɪ/?",["voice","poor","tour","rural"],0,"“oi” thường phát âm là /ɔɪ/: <b>voice</b> /vɔɪs/, coin, boil, point.");
+mc(3,"In which word is “<b>oy</b>” pronounced /ɔɪ/?",["destroy","tour","poor","rural"],0,"“oy” phát âm là /ɔɪ/: <b>destroy</b> /dɪˈstrɔɪ/, joy, enjoy, toy, boy.");
+mc(3,"In which word can “<b>ou</b>” be pronounced /ʊə/?",["tour","loud","cloud","found"],0,"“ou” có thể phát âm là /ʊə/: <b>tour</b> /tʊə(r)/, tourist. Còn loud, cloud, found đọc là /aʊ/.");
+mc(3,"Choose the word whose underlined part is pronounced <b>differently</b>.",["c<u>oi</u>n","v<u>oi</u>ce","b<u>oy</u>","t<u>ou</u>r"],3,"coin, voice, boy đều chứa /ɔɪ/; <b>tour</b> chứa /ʊə/.");
+mc(3,"Choose the word whose underlined part is pronounced <b>differently</b>.",["p<u>oor</u>","t<u>ou</u>rist","r<u>ur</u>al","n<u>oi</u>se"],3,"poor, tourist, rural đều chứa /ʊə/; <b>noise</b> chứa /ɔɪ/.");
+mc(3,"Choose the word whose underlined part is pronounced <b>differently</b>.",["sec<u>ure</u>","ens<u>ure</u>","mat<u>ure</u>","enj<u>oy</u>"],3,"secure, ensure, mature chứa /ʊə/; <b>enjoy</b> chứa /ɔɪ/.");
+mc(3,"Choose the word whose underlined part is pronounced <b>differently</b>.",["p<u>oor</u>","end<u>ure</u>","r<u>ur</u>al","t<u>oy</u>"],3,"poor, endure, rural chứa /ʊə/; <b>toy</b> chứa /ɔɪ/.");
+mc(3,"Choose the word whose underlined part is pronounced <b>differently</b> from the others.",["cl<u>u</u>b","<u>u</u>pload","disc<u>u</u>ss","foc<u>u</u>s"],3,"club /klʌb/, upload /ˌʌpˈləʊd/, discuss /dɪˈskʌs/ có /ʌ/; focus /ˈfəʊkəs/ có /ə/.");
+mc(3,"Choose the word whose underlined part is pronounced <b>differently</b> from the others.",["m<u>e</u>dia","str<u>e</u>ssful","pr<u>e</u>ssure","w<u>e</u>bsite"],0,"media /ˈmiːdiə/ có /iː/; stressful, pressure, website có /e/.");
+mc(3,"Choose the word whose underlined part is pronounced <b>differently</b> from the others.",["p<u>a</u>ddy","teen<u>a</u>ger","c<u>a</u>mel","c<u>a</u>ttle"],1,"teenager /ˈtiːneɪdʒə(r)/ có /eɪ/; paddy, camel, cattle có /æ/.");
+fill(3,"Điền từ có âm /ɔɪ/, nghĩa là “đồ chơi”: t _ _",["toy"],"<b>toy</b> /tɔɪ/ = đồ chơi, chứa âm /ɔɪ/ (dấu hiệu “oy”).","Gợi ý: t _ _ (3 chữ cái)");
+tf(3,"The word “<b>secure</b>” contains the sound /ɔɪ/.",false,"Sai. <b>secure</b> /sɪˈkjʊə/ chứa âm /ʊə/, không phải /ɔɪ/.");
+
+/* =========================================================
+   ROUND 4 – READING AND COMPREHENSION (25)
+   ========================================================= */
+mc(4,"Blank (1): Every teenager feels ______ at times.",["stress","stressing","stressed","stressful"],2,"<i>feel + tính từ</i> chỉ cảm giác của người → <b>stressed</b> (cảm thấy căng thẳng).",{passage:"cloze"});
+mc(4,"Blank (2): …the main things that teens have to ______ with on a daily basis.",["cope","think","talk","keep"],0,"<b>cope with</b> = đối phó, giải quyết.",{passage:"cloze"});
+mc(4,"Blank (3): …but ______ give us some advice about things we can do to reduce our stress levels.",["psychology","psychologies","psychologist","psychologists"],3,"Cần danh từ số nhiều làm chủ ngữ của động từ <i>give</i>: <b>psychologists</b>.",{passage:"cloze"});
+mc(4,"Blank (4): …it's important to exercise regularly, and avoid eating ______ food.",["healthy","health","unhealthy","unhealth"],2,"Để giảm căng thẳng, cần tránh ăn đồ <b>unhealthy</b> (không tốt cho sức khỏe).",{passage:"cloze"});
+mc(4,"Blank (5): …talking to a friend, or ______ time with a pet.",["to spending","spending","spend","to spend"],1,"Sau <i>or</i> cần cùng dạng V-ing với <i>listening, talking</i> → <b>spending</b>.",{passage:"cloze"});
+mc(4,"Most students in Britain take the GCSE when ______.",["they are 11 years old","they are 16 years old","they finish grade 10","they begin grade 11"],1,"“Students in Britain can leave school at sixteen… This is also the age when most students take their first important exams, the GCSE.”",{passage:"britain"});
+mc(4,"What is the first thing you'll notice when you visit almost any school in Britain?",["The school logo","The school gate","The school playground","The school uniform"],3,"“Visit almost any school in Britain and the first thing you'll notice is the school uniform.”",{passage:"britain"});
+mc(4,"What do most teenagers in Britain want to wear, according to the passage?",["trendy labels","expensive uniforms","fashionable hats","economical trainers"],0,"“If you want to follow the crowd, you need to wear trendy labels.”",{passage:"britain"});
+mc(4,"The word “<b>highlight</b>” in the paragraph “School uniform” is closest in meaning to ______.",["confuse","remark","emphasize","decrease"],2,"<i>highlight</i> = nêu bật, làm nổi bật ≈ <b>emphasize</b>.",{passage:"britain"});
+mc(4,"Which of the following statements is <b>NOT</b> true?",["Students in Britain can take 8 subjects at the GCSE.","Most British teenagers spend 2–3 hours watching TV after school.","Most 16-year-old students in Britain don't like school uniforms.","Many British teenagers judge their friends by their shirt or trainers."],1,"Bài viết nói teen Anh dành 2–3 giờ cho <b>bài tập về nhà</b> (“Forget watching TV”), không phải xem TV.",{passage:"britain"});
+tf(4,"Students in Britain can leave school at the age of sixteen.",true,"“Students in Britain can leave school at sixteen (grade 11).”",{passage:"britain"});
+tf(4,"British teenagers spend 2–3 hours watching TV after school.",false,"Sai. Họ dành 2–3 giờ làm <b>bài tập về nhà</b>.",{passage:"britain"});
+mc(4,"Why do young people suffer from stress?",["Because they take on too many tasks and find it hard to balance homework, parties, sports and friends.","Because they sleep too much.","Because they drink too little coffee.","Because they have no homework."],0,"“…they take on too many tasks until it becomes harder and harder to balance homework assignments, parties, sports activities and friends.”",{passage:"stress"});
+tf(4,"Caffeine only comes in the form of coffee.",false,"Sai. Bài nói caffeine có trong coffee <b>or soft drinks</b> (cà phê hoặc nước ngọt).",{passage:"stress"});
+mc(4,"Physical exercise is a good release for stress because it increases certain ______ in the brain.",["chemicals","drugs","tasks","limits"],0,"“…it increases certain chemicals in the brain which calm you down.”",{passage:"stress"});
+mc(4,"What is the benefit of getting enough sleep?",["It helps avoid stress and keeps you healthy and full of energy.","It makes you drink more coffee.","It gives you more homework.","It makes you take on more tasks."],0,"“You have to get enough sleep to avoid stress and to stay healthy and full of energy.”",{passage:"stress"});
+mc(4,"How long do you need to sit down quietly and breathe deeply?",["five to ten minutes","ten to twenty minutes","twenty to thirty minutes","one hour"],1,"“…sit down quietly and breathe deeply for ten to twenty minutes.”",{passage:"stress"});
+mc(4,"According to the passage, what does caffeine lead to in the end?",["more stress","better sleep","more energy for ever","calmer minds"],0,"“In the end, like other drugs, caffeine only leads to more stress.”",{passage:"stress"});
+tf(4,"The writer says it is better to do lots of tasks badly than a few tasks really well.",false,"Sai. Bài viết: “It is better to do a few tasks really well than lots of tasks badly.”",{passage:"stress"});
+fill(4,"______ is a normal part of life.",["stress"],"“<b>Stress</b> is a normal part of life and it can even be beneficial in some situations.”","Gợi ý: s _ _ _ _ _",{passage:"audio"});
+fill(4,"______ and school are causes that make teenagers stressed.",["homework"],"“Common things that teenagers say cause them stress include: <b>homework</b> and school (especially exams)…”","Gợi ý: h _ _ _ _ _ _ _",{passage:"audio"});
+fill(4,"Teenagers are stressed with their social ______ with friends.",["relationships"],"“…their social <b>relationships</b> with friends and boyfriends or girlfriends…”","Gợi ý: r _ _ _ _ _ _ _ _ _ _ _ (số nhiều)",{passage:"audio"});
+fill(4,"______ of time, or having too much to do, often causes stress.",["lack"],"“<b>Lack</b> of time – having too much to do” là một nguyên nhân gây căng thẳng.","Gợi ý: l _ _ _ (sự thiếu)",{passage:"audio"});
+fill(4,"Stress that hangs around for a long period of time can be ______ to your child's health and well-being.",["harmful"],"“Stress that hangs around for a long period of time can be <b>harmful</b> to your child's health and well-being.”","Gợi ý: h _ _ _ _ _ _ (có hại)",{passage:"audio"});
+tf(4,"The audio says that we can't support our children when they are stressed.",false,"Sai. Bài nói: “there are things you can do to help them” và khuyên tìm sự hỗ trợ khi cần.",{passage:"audio"});
+
+/* =========================================================
+   ROUND 5 – COMMUNICATION AND SPEAKING (25)
+   ========================================================= */
+mc(5,"Nam: “Dad, I've got the first rank in class in English this semester!”<br>Mr. Thanh: “______”",["Thank you!","Never mind.","Well done!","You're welcome."],2,"Khen ngợi thành tích của bạn/con: <b>Well done!</b>");
+mc(5,"Your friend stayed up late studying for an important exam and feels nervous. What can you say?",["Well done!","Stay calm. Everything will be all right.","I know how you feel.","A really great job."],1,"Trấn an, động viên trước kỳ thi: <b>Stay calm. Everything will be all right.</b>");
+mc(5,"Nick: “Do you know what school clubs are available?”<br>Mai: “______”",["Sure, there are quite a few clubs you can join.","I'm sorry to hear that.","Congratulations!","That's a bad idea."],0,"Trả lời câu hỏi về các câu lạc bộ: <b>Sure, there are quite a few clubs you can join.</b>");
+mc(5,"Nick: “Is there any club that stands out to you personally?”<br>Mai: “Well, I'm part of the Drama Club. ______”",["It's a lot of fun and a great way to gain confidence onstage.","It is very boring and I never go.","I don't know any clubs.","You are welcome."],0,"Mai đang kể về trải nghiệm tích cực với Drama Club.");
+mc(5,"Nick: “How can I sign up for these clubs?”<br>Mai: “______”",["You can usually sign up during the club fair at the beginning of the school year.","You should eat more healthy food.","I enjoy browsing social media.","Never mind."],0,"Hỏi cách đăng ký câu lạc bộ → trả lời về hội chợ câu lạc bộ đầu năm học.");
+mc(5,"Nick: “Thanks for the tips, Mai!”<br>Mai: “______”",["You're welcome. Good luck exploring the clubs!","Never mind.","I'm afraid not.","Well done!"],0,"Đáp lại lời cảm ơn: <b>You're welcome.</b> rồi chúc may mắn.");
+order(5,"Sắp xếp các lượt lời thành một đoạn hội thoại hợp lý.",["Nick: Hi Mai! Do you know which school clubs are available?","Mai: Sure! We have the Science Club, the Art Club and the Music Club.","Nick: The Science Club sounds interesting. How can I sign up?","Mai: You can sign up at the club fair at the beginning of the school year."],"Hội thoại: hỏi về các câu lạc bộ → liệt kê câu lạc bộ → quan tâm và hỏi cách đăng ký → hướng dẫn đăng ký.");
+mc(5,"A: “I feel stressed because of my midterm test.”<br>B: “______”",["Why don't you make a study plan and take regular breaks?","Well done! You won the prize.","Congratulations on your new club!","You should stay up all night every day."],0,"Đưa lời khuyên cho bạn đang căng thẳng: <b>Why don't you…?</b> Thiếu ngủ còn làm tăng căng thẳng nên D không phù hợp.");
+mc(5,"A: “I can't concentrate on my homework because my phone keeps buzzing.”<br>B: “______”",["You should turn off the notifications while you study.","You should browse social media more.","I'm glad to hear that.","That's a great idea."],0,"Lời khuyên phù hợp: tắt thông báo khi học (liên quan <i>notification</i>, <i>concentrate</i>).");
+mc(5,"A: “Tomorrow is my midterm test. I'm so nervous.”<br>B: “______”",["Stay calm. I'm sure you'll do well!","Never mind.","Thank you very much!","I don't agree."],0,"Động viên trước kỳ thi: <b>Stay calm. I'm sure you'll do well!</b>");
+mc(5,"A: “I won first prize in the English speaking competition!”<br>B: “______”",["Congratulations! That's wonderful!","Never mind.","I'm sorry to hear that.","Stay calm."],0,"Chúc mừng thành tích: <b>Congratulations!</b>");
+tf(5,"“Well done!” can be used to praise someone's success.",true,"Đúng. Ví dụ: “I've got the first rank in class.” – “Well done!”");
+tf(5,"“Why don't you…?” can be used to give advice.",true,"Đúng. Ví dụ: Why don't you make a study plan?");
+tf(5,"“Stay calm. Everything will be all right.” is a good reply when a friend is nervous before an exam.",true,"Đúng. Đây là câu trấn an, động viên.");
+tf(5,"When a friend says “I've got the first rank in class,” you should reply “Never mind.”",false,"Sai. Nên khen: “Well done!” hoặc “Congratulations!”. <i>Never mind</i> dùng khi ai đó xin lỗi hoặc gặp chuyện nhỏ.");
+order(5,"Sắp xếp các cụm từ thành một lời khuyên hoàn chỉnh.",["You should","talk to","a friend","or a teacher","about your stress."],"You should talk to a friend or a teacher about your stress. – <i>You should + V</i> dùng để khuyên.");
+match(5,"Nối tình huống với câu phản hồi phù hợp.",[["I got a high mark in the midterm test.","Well done!"],["I'm worried about tomorrow's exam.","Stay calm. Everything will be all right."],["I can't focus on studying.","Why don't you turn off your phone?"],["I want to join a school club.","Which club are you interested in?"],["Thank you for your help.","You're welcome."]],"Khen ngợi → Well done!; lo lắng → trấn an; khó tập trung → khuyên; muốn tham gia câu lạc bộ → hỏi sở thích; cảm ơn → You're welcome.");
+mc(5,"A: “How often do you check your social media accounts?”<br>B: “______”",["I check them every day after school.","Yes, I do.","I'm fine, thank you.","It is on the table."],0,"<i>How often</i> hỏi về tần suất → trả lời bằng tần suất.");
+mc(5,"A: “Do you think social media is enjoyable?”<br>B: “______”",["Yes, I do. I can share photos and connect with friends.","No, thanks. I'm full.","Congratulations!","You're welcome."],0,"Trả lời Yes + lý do liên quan đến <i>share</i>, <i>connect</i>.");
+mc(5,"A: “Which club would you like to join, the Science Club or the Art Club?”<br>B: “______”",["I'd prefer the Science Club. I've always been into science.","Yes, I'd love to.","Well done!","You're welcome."],0,"Câu hỏi lựa chọn → chọn một và nêu lý do.");
+mc(5,"A: “Would you like to join our chess club?”<br>B: “______”",["Yes, I'd love to.","Yes, it is.","No, I don't have it.","Not at all, thank you."],0,"Lời mời <i>Would you like to…?</i> → đồng ý: <b>Yes, I'd love to.</b>");
+fill(5,"A: “I'm sorry I can't join the club today.”<br>B: “______, we can try next time.”",["never mind"],"<b>Never mind</b> dùng để nói “không sao đâu” khi ai đó xin lỗi.","Gợi ý: N _ _ _ _  m _ _ _ (2 từ)");
+mc(5,"Which sentence <b>gives advice</b>?",["You should get enough sleep.","I got the first rank.","I joined the club.","She is my aunt."],0,"Cấu trúc <b>You should + V</b> dùng để đưa ra lời khuyên.");
+mc(5,"Which sentence <b>encourages</b> a friend before a competition?",["Don't give up! You can do it.","I'm sorry to hear that.","You're welcome.","Never mind."],0,"<b>Don't give up! You can do it.</b> là câu động viên, khích lệ.");
+mc(5,"Friend: “I'm so stressed. I have too much to do.”<br>You: “______”",["I know how you feel. Let's talk about it.","Congratulations!","That's a great idea!","You're welcome."],0,"Thể hiện sự đồng cảm: <b>I know how you feel.</b>");
+
+/* =========================================================
+   ROUND 6 – WRITING AND FINAL BOSS (25)
+   ========================================================= */
+order(6,"Rearrange the parts to make a complete sentence.",["It can be challenging to","focus on studying","when notifications from","social media platforms","keep distracting me."],"It can be challenging to focus on studying when notifications from social media platforms keep distracting me.");
+order(6,"Rearrange the parts to make a complete sentence.",["It's important","to prioritize tasks","and concentrate on one thing","at a time","to maximize productivity."],"It's important to prioritize tasks and concentrate on one thing at a time to maximize productivity.");
+order(6,"Rearrange the parts to make a complete sentence.",["Teen social media addiction","is a growing concern","in today's digital age,","where individuals are constantly connected","to their smartphones and the internet."],"Teen social media addiction is a growing concern in today's digital age, where individuals are constantly connected to their smartphones and the internet.");
+order(6,"Rearrange the parts to make a complete sentence.",["I find it helpful","to set aside dedicated time slots","for browsing social media","so that it doesn't interfere with","my ability to focus on other aspects of my life."],"I find it helpful to set aside dedicated time slots for browsing social media so that it doesn't interfere with my ability to focus on other aspects of my life.");
+const COMB = "Combine the two simple sentences into a compound sentence. Choose the best conjunction.<br>";
+mc(6,COMB+"“My best friend is studying abroad. It is impossible for us to meet each other now.”<br>→ My best friend is studying abroad, ______ it is impossible for us to meet each other now.",["so","but","or","nor"],0,"Vế sau là kết quả của vế trước → <b>so</b>.");
+mc(6,COMB+"“They are going to build a new bridge across this river. Traveling will be much more convenient.”<br>→ They are going to build a new bridge across this river, ______ traveling will be much more convenient.",["but","so","or","nor"],1,"Vế sau là kết quả → <b>so</b>.");
+mc(6,COMB+"“It has been ages since our last encounter. I still remember him clearly.”<br>→ It has been ages since our last encounter, ______ I still remember him clearly.",["so","but","or","for"],1,"Hai ý tương phản → <b>but</b>.");
+mc(6,COMB+"“I went down with flu last week. I had to postpone my work.”<br>→ I went down with flu last week, ______ I had to postpone my work.",["but","or","so","nor"],2,"Vế sau là kết quả → <b>so</b>.");
+mc(6,COMB+"“I think the festival will be full of fun. Many people will enjoy it.”<br>→ I think the festival will be full of fun, ______ many people will enjoy it.",["and","but","or","nor"],0,"Hai ý bổ sung cho nhau → <b>and</b>.");
+mc(6,COMB+"“Students can choose to carry out a project on environmental issues. They can conduct research on the topic of renewable energy.”<br>→ Students can choose to carry out a project on environmental issues, ______ they can conduct research on the topic of renewable energy.",["so","or","but","nor"],1,"Hai sự lựa chọn → <b>or</b>.");
+mc(6,COMB+"“My brother has grown up into an adult. He still enjoys playing with Lego.”<br>→ My brother has grown up into an adult, ______ he still enjoys playing with Lego.",["but","so","or","nor"],0,"Hai ý tương phản (đã lớn nhưng vẫn thích Lego) → <b>but</b>.");
+fill(6,"He was very tired; ______, he went on walking.",["nevertheless"],"<b>nevertheless</b> = tuy nhiên, dù vậy. Cấu trúc: mệnh đề; <i>trạng từ nối</i>, mệnh đề.","Gợi ý: n _ _ _ _ _ _ _ _ _ _ _ (dù vậy)");
+mc(6,"She first disagreed to join our journey; ______, she changed her mind later.",["however","therefore","otherwise","besides"],0,"Hai ý trái ngược (không đồng ý → đổi ý) → <b>however</b>.");
+mc(6,"We will have five days off this holiday; ______, it is preceded by a couple of weekends.",["however","moreover","otherwise","meanwhile"],1,"Bổ sung thêm thông tin → <b>moreover</b> (hơn nữa).");
+fill(6,"Please increase the air-conditioner's temperature; ______, we will be frozen in here.",["otherwise"],"<b>otherwise</b> = nếu không thì…","Gợi ý: o _ _ _ _ _ _ _ _ (nếu không thì)");
+mc(6,"I was ill yesterday; ______, I could not come.",["therefore","however","otherwise","meanwhile"],0,"Chỉ kết quả → <b>therefore</b> (vì vậy).");
+mc(6,"Austin studied a lot; ______, he got great results.",["however","consequently","otherwise","on the contrary"],1,"Chỉ kết quả → <b>consequently</b> (do đó).");
+mc(6,"I don't want to come out now; ______, I must review my lesson.",["besides","however","otherwise","nevertheless"],0,"Thêm một lý do nữa → <b>besides</b> (ngoài ra).");
+mc(6,"She will not come back until Monday; ______, what do we do?",["therefore","meanwhile","otherwise","consequently"],1,"Chỉ thời gian trong lúc đó → <b>meanwhile</b> (trong khi đó).");
+mc(6,"It's no trouble at all; ______, it's a great pleasure to know your tradition.",["on the contrary","consequently","besides","meanwhile"],0,"Nói ngược lại ý vừa nêu → <b>on the contrary</b> (trái lại).");
+mc(6,"The coffee shop provides free Wi-Fi access; ______, there are several high speed cable ports.",["otherwise","in addition","however","on the contrary"],1,"Bổ sung thêm thông tin → <b>in addition</b> (ngoài ra).");
+tf(6,"In a compound sentence, a conjunctive adverb such as <i>however</i> or <i>therefore</i> is always followed by a comma.",true,"Đúng. Theo tài liệu, trạng từ nối luôn có dấu phẩy theo sau nó.");
+cat(6,"Phân loại: <b>Conjunction</b> (liên từ) hay <b>Conjunctive adverb</b> (trạng từ nối)?",["Conjunction","Conjunctive adverb"],[["and",0],["however",1],["but",0],["therefore",1],["or",0],["nevertheless",1]],"Liên từ: and, but, or, so, for, nor, yet (có dấu phẩy đứng trước). Trạng từ nối: however, therefore, nevertheless, consequently, otherwise… (có dấu phẩy theo sau).");
+match(6,"Nối liên từ với nghĩa tiếng Việt.",[["for","vì"],["nor","cũng không"],["so","vì vậy"],["yet","tuy thế"],["or","hoặc"]],"for = vì; nor = cũng không; so = vì vậy; yet = tuy thế; or = hoặc. (and = và; but = nhưng)");
+mc(6,"Which sentence is written correctly?",["I was ill yesterday; therefore, I could not come.","I was ill yesterday, therefore I could not come.","I was ill yesterday therefore, I could not come.","Therefore, I was ill yesterday; I could not come."],0,"Mệnh đề; <b>therefore</b>, mệnh đề: có dấu chấm phẩy trước trạng từ nối và dấu phẩy theo sau.");
+
+/* ===================== GAME ENGINE ===================== */
+const ROUNDS = [null,
+  {name:"ROUND 1 – VOCABULARY CHALLENGE", short:"Vocabulary", icon:"📚", color:"#5B4BD6", desc:"Từ vựng Unit 3: teenagers, school clubs, social media, stress…"},
+  {name:"ROUND 2 – GRAMMAR BATTLE", short:"Grammar", icon:"⚔️", color:"#0B6FCF", desc:"Câu đơn, câu ghép và các liên từ and, but, or, so, for, nor, yet."},
+  {name:"ROUND 3 – PRONUNCIATION QUEST", short:"Pronunciation", icon:"🎧", color:"#D4502F", desc:"Phân biệt nguyên âm đôi /ʊə/ và /ɔɪ/."},
+  {name:"ROUND 4 – READING AND COMPREHENSION", short:"Reading", icon:"📖", color:"#07896B", desc:"Đọc đoạn văn về teen stress, teenagers in Britain… rồi trả lời."},
+  {name:"ROUND 5 – COMMUNICATION AND SPEAKING", short:"Speaking", icon:"💬", color:"#C7307C", desc:"Câu lạc bộ, lời khuyên, động viên và phản hồi tình huống."},
+  {name:"ROUND 6 – WRITING AND FINAL BOSS", short:"Writing", icon:"✍️", color:"#B9770E", desc:"Sắp xếp câu, nối câu ghép, trạng từ nối. Trận cuối cùng!"}
+];
+const PER_ROUND = 25, TOTAL = 150, PTS = 10;
+const $ = s => document.querySelector(s);
+let S = null, cur = null, soundOn = true, audioCtx = null, playerName = "";
+
+function shuffle(a){ a = a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function show(id){ document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("active", s.id===id)); window.scrollTo(0,0); }
+function norm(s){ return String(s).toLowerCase().replace(/[’‘]/g,"'").replace(/[.,!?;:"“”]/g,"").replace(/\s+/g," ").trim(); }
+function setTheme(r){ const c = ROUNDS[r].color; document.documentElement.style.setProperty("--accent", c); }
+function safeStore(k,v){ try{ if(v===undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k,v); }catch(e){} return null; }
+function fmtTime(ms){ const s=Math.round(ms/1000); return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0"); }
+
+/* ---------- sound & effects ---------- */
+function tone(seq){
+  if(!soundOn) return;
+  try{
+    audioCtx = audioCtx || new (window.AudioContext||window.webkitAudioContext)();
+    let t = audioCtx.currentTime;
+    seq.forEach(([f,d])=>{
+      const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type="sine"; o.frequency.value=f; g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.12,t+0.02); g.gain.exponentialRampToValueAtTime(0.0001,t+d);
+      o.connect(g); g.connect(audioCtx.destination); o.start(t); o.stop(t+d+0.02); t+=d;
+    });
+  }catch(e){}
+}
+function confetti(){
+  const set=["⭐","✨","🌟","🎉"];
+  for(let i=0;i<22;i++){ const s=document.createElement("span"); s.className="star"; s.textContent=set[i%set.length];
+    s.style.left=(Math.random()*100)+"vw"; s.style.animationDelay=(Math.random()*0.4)+"s"; document.body.appendChild(s); setTimeout(()=>s.remove(),2200); }
+}
+function refreshSound(){ document.querySelectorAll(".soundBtn").forEach(b=>{ b.textContent = b.closest("#screen-start") ? (soundOn?"🔊 Âm thanh: Bật":"🔇 Âm thanh: Tắt") : (soundOn?"🔊":"🔇"); }); }
+
+/* ---------- answer text for feedback / review ---------- */
+function answerText(q){
+  switch(q.type){
+    case "mc": return q.options[q.ans];
+    case "tf": return q.ans ? "True" : "False";
+    case "fill": return q.ans[0];
+    case "match": return q.pairs.map(p=>p[0]+" → "+p[1]).join("<br>");
+    case "order": return q.tokens.join(" ");
+    case "cat": return q.cats.map((c,ci)=>c+": "+q.items.filter(it=>it[1]===ci).map(it=>it[0]).join(" · ")).join("<br>");
+  }
+}
+
+/* ---------- question renderers: each sets cur.get() and cur.lock(g) ---------- */
+const R = {};
+R.mc = (q,box)=>{
+  const opts = shuffle(q.options.map((t,i)=>({t,i})));
+  box.innerHTML = '<div class="opts">'+opts.map((o,k)=>`<button type="button" class="opt" data-i="${o.i}"><span class="letter">${"ABCD"[k]}</span><span>${o.t}</span></button>`).join("")+"</div>";
+  cur.sel = null;
+  box.querySelectorAll(".opt").forEach(b=>b.addEventListener("click",()=>{
+    if(cur.locked) return; cur.sel = +b.dataset.i;
+    box.querySelectorAll(".opt").forEach(x=>x.classList.toggle("sel",x===b));
+  }));
+  cur.get = ()=>({complete:cur.sel!==null, correct:cur.sel===q.ans, text:cur.sel!==null?q.options[cur.sel]:""});
+  cur.lock = ()=>box.querySelectorAll(".opt").forEach(b=>{ b.disabled=true; const i=+b.dataset.i;
+    if(i===q.ans) b.classList.add("right"); else if(i===cur.sel) b.classList.add("wrong"); });
+};
+R.tf = (q,box)=>{
+  box.innerHTML = '<div class="opts two"><button type="button" class="opt" data-v="1"><span class="letter">✔</span><span>True</span></button><button type="button" class="opt" data-v="0"><span class="letter">✘</span><span>False</span></button></div>';
+  cur.sel = null;
+  box.querySelectorAll(".opt").forEach(b=>b.addEventListener("click",()=>{
+    if(cur.locked) return; cur.sel = b.dataset.v==="1";
+    box.querySelectorAll(".opt").forEach(x=>x.classList.toggle("sel",x===b));
+  }));
+  cur.get = ()=>({complete:cur.sel!==null, correct:cur.sel===q.ans, text:cur.sel===null?"":(cur.sel?"True":"False")});
+  cur.lock = ()=>box.querySelectorAll(".opt").forEach(b=>{ b.disabled=true; const v=b.dataset.v==="1";
+    if(v===q.ans) b.classList.add("right"); else if(v===cur.sel) b.classList.add("wrong"); });
+};
+R.fill = (q,box)=>{
+  box.innerHTML = `<div class="fill"><input type="text" id="fillIn" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Type your answer..." aria-label="Your answer"><div class="hint">${q.hint||""}</div></div>`;
+  const inp = box.querySelector("input");
+  inp.addEventListener("keydown",e=>{ if(e.key==="Enter"){ e.preventDefault(); submit(); } });
+  setTimeout(()=>{ try{ inp.focus({preventScroll:true}); }catch(e){} },50);
+  cur.get = ()=>{ const v = norm(inp.value); return {complete:v!=="", correct:q.ans.some(a=>norm(a)===v), text:inp.value.trim()}; };
+  cur.lock = g=>{ inp.disabled=true; inp.classList.add(g.correct?"right":"wrong"); };
+};
+R.match = (q,box)=>{
+  const rights = shuffle(q.pairs.map((p,i)=>({t:p[1],i})));
+  box.innerHTML = '<div class="hint">Chọn nghĩa đúng cho từng dòng.</div>' + q.pairs.map((p,k)=>
+    `<div class="mrow" data-k="${k}"><div class="l">${p[0]}</div><select aria-label="${p[0]}"><option value="">— chọn / select —</option>${rights.map(r=>`<option value="${r.i}">${r.t}</option>`).join("")}</select></div>`).join("");
+  const sels = [...box.querySelectorAll("select")];
+  cur.get = ()=>{ const vals = sels.map(s=>s.value); const good = vals.filter((v,k)=>v!==""&&+v===k).length;
+    return {complete:vals.every(v=>v!==""), correct:good===q.pairs.length, partial:good+"/"+q.pairs.length,
+      text:vals.map((v,k)=>q.pairs[k][0]+" → "+(v===""?"?":q.pairs[+v][1])).join("; ")}; };
+  cur.lock = ()=>sels.forEach((s,k)=>{ s.disabled=true; s.closest(".mrow").classList.add(+s.value===k?"right":"wrong"); });
+};
+R.order = (q,box)=>{
+  box.innerHTML = '<div class="hint">Bấm vào các cụm từ theo đúng thứ tự. Bấm lại cụm đã chọn để bỏ ra.</div><div class="area" id="ordArea" aria-label="Câu trả lời"></div><div class="bank" id="ordBank"></div><div style="margin-top:10px"><button type="button" class="btn small ghost" id="ordReset">↺ Làm lại</button></div>';
+  const area = box.querySelector("#ordArea"), bank = box.querySelector("#ordBank");
+  let idxs = q.tokens.map((_,i)=>i), tries = 0;
+  do{ idxs = shuffle(idxs); tries++; } while(idxs.every((v,i)=>v===i) && tries<10);
+  let placed = [];
+  function draw(){
+    area.innerHTML=""; bank.innerHTML="";
+    placed.forEach(i=>{ const b=document.createElement("button"); b.type="button"; b.className="chip"; b.textContent=q.tokens[i]; b.disabled=cur.locked; b.onclick=()=>{ placed=placed.filter(x=>x!==i); draw(); }; area.appendChild(b); });
+    idxs.filter(i=>!placed.includes(i)).forEach(i=>{ const b=document.createElement("button"); b.type="button"; b.className="chip"; b.textContent=q.tokens[i]; b.disabled=cur.locked; b.onclick=()=>{ placed.push(i); draw(); }; bank.appendChild(b); });
+  }
+  draw();
+  box.querySelector("#ordReset").onclick = ()=>{ if(cur.locked) return; placed=[]; draw(); };
+  cur.get = ()=>{ const t = placed.map(i=>q.tokens[i]).join(" "); return {complete:placed.length===q.tokens.length, correct:t===q.tokens.join(" "), text:t}; };
+  cur.lock = g=>{ draw(); area.classList.add(g.correct?"right":"wrong"); box.querySelector("#ordReset").disabled=true; };
+};
+R.cat = (q,box)=>{
+  const items = shuffle(q.items.map((it,i)=>({t:it[0],c:it[1],i})));
+  const asg = {};
+  box.innerHTML = '<div class="hint">Với mỗi mục, bấm nút nhóm phù hợp.</div>' + items.map(it=>
+    `<div class="catrow" data-i="${it.i}"><div class="t">${it.t}</div><div class="bs">${q.cats.map((c,ci)=>`<button type="button" data-c="${ci}">${c}</button>`).join("")}</div></div>`).join("");
+  box.querySelectorAll(".catrow").forEach(row=>{
+    row.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+      if(cur.locked) return; asg[row.dataset.i]=+b.dataset.c;
+      row.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));
+    }));
+  });
+  cur.get = ()=>{ const done = items.every(it=>asg[it.i]!==undefined); const good = items.filter(it=>asg[it.i]===it.c).length;
+    return {complete:done, correct:good===items.length, partial:good+"/"+items.length,
+      text:items.map(it=>it.t+" → "+(asg[it.i]===undefined?"?":q.cats[asg[it.i]])).join("; ")}; };
+  cur.lock = ()=>box.querySelectorAll(".catrow").forEach(row=>{ const it=items.find(x=>String(x.i)===row.dataset.i);
+    row.querySelectorAll("button").forEach(b=>b.disabled=true); row.classList.add(asg[it.i]===it.c?"right":"wrong"); });
+};
+
+/* ---------- flow ---------- */
+function buildOrder(){ let o=[]; for(let r=1;r<=6;r++) o=o.concat(shuffle(Q.filter(q=>q.round===r))); return o; }
+function startGame(){
+  playerName = ($("#name").value||"").trim() || "Student";
+  safeStore("e8u3name", playerName);
+  newRun();
+}
+function newRun(){
+  S = {idx:0, score:0, results:new Array(TOTAL).fill(null), order:buildOrder(), t0:Date.now(), tEnd:null};
+  showIntro();
+}
+function showIntro(){
+  const q = S.order[S.idx], r = q.round; setTheme(r);
+  $("#introIcon").textContent = ROUNDS[r].icon; $("#introTitle").textContent = ROUNDS[r].name;
+  $("#introDesc").textContent = ROUNDS[r].desc; $("#introMeta").textContent = PER_ROUND+" câu · tối đa "+(PER_ROUND*PTS)+" điểm";
+  $("#btnGo").textContent = "LET'S GO! ▶";
+  show("screen-intro");
+}
+function renderQ(){
+  const q = S.order[S.idx]; setTheme(q.round);
+  cur = {locked:false, q};
+  $("#gName").textContent = "👤 "+playerName;
+  $("#gScore").textContent = S.score;
+  $("#gBar").style.width = (S.idx/TOTAL*100)+"%";
+  $("#gRound").textContent = ROUNDS[q.round].name;
+  $("#gNum").textContent = "Question "+(((S.idx)%PER_ROUND)+1)+" / "+PER_ROUND+"  ·  Overall "+(S.idx+1)+" / "+TOTAL;
+  $("#gMsg").textContent=""; $("#gFb").innerHTML="";
+  $("#btnSubmit").style.display=""; $("#btnSubmit").disabled=false; $("#btnNext").style.display="none";
+  const box = $("#qBox");
+  let html = "";
+  if(q.passage){ const p = PASSAGES[q.passage]; html += `<details class="passage" open><summary>📄 Reading: ${p.title}</summary><div class="ptext">${p.html}</div></details>`; }
+  if(q.img) html += `<div class="pic">${IMG[q.img]}</div>`;
+  html += `<div class="qtext">${q.q}</div><div id="qBody"></div>`;
+  box.innerHTML = html;
+  R[q.type](q, box.querySelector("#qBody"));
+  show("screen-game");
+}
+function submit(){
+  if(!cur || cur.locked) return;
+  const q = cur.q, g = cur.get();
+  if(!g.complete){ $("#gMsg").textContent = "Hãy hoàn thành câu trả lời trước khi nộp nhé!"; return; }
+  cur.locked = true; $("#gMsg").textContent="";
+  cur.lock(g);
+  if(g.correct) S.score += PTS;
+  S.results[S.idx] = {id:q.id, round:q.round, ok:g.correct, user:g.text};
+  $("#gScore").textContent = S.score;
+  $("#gBar").style.width = ((S.idx+1)/TOTAL*100)+"%";
+  const fb = $("#gFb");
+  if(g.correct){
+    fb.innerHTML = `<div class="fb ok"><h3>✔ Correct! Excellent!</h3><p><b>Đáp án đúng:</b> ${answerText(q)}</p><p>${q.exp}</p></div>`;
+    tone([[660,.1],[880,.1],[1175,.18]]); confetti();
+  } else {
+    const part = g.partial ? `<p>Số phần đúng: <b>${g.partial}</b> (cần đúng toàn bộ để được điểm).</p>` : "";
+    fb.innerHTML = `<div class="fb no"><h3>Not quite! Try to learn from your mistake.</h3>${part}<p><b>Đáp án đúng:</b> ${answerText(q)}</p><p>${q.exp}</p></div>`;
+    tone([[330,.16],[262,.2]]);
+  }
+  $("#btnSubmit").style.display="none";
+  const last = S.idx===TOTAL-1;
+  $("#btnNext").textContent = last ? "SEE MY RESULTS 🏆" : "NEXT QUESTION ▶";
+  $("#btnNext").style.display="";
+  $("#btnNext").focus({preventScroll:true});
+}
+function next(){
+  if(!cur || !cur.locked) return;
+  S.idx++;
+  if(S.idx>=TOTAL){ S.tEnd = Date.now(); return showResult(); }
+  if(S.order[S.idx].round !== S.order[S.idx-1].round) showIntro(); else renderQ();
+}
+function roundStats(){
+  const rs=[]; for(let r=1;r<=6;r++){ const rr=S.results.filter(x=>x&&x.round===r); const c=rr.filter(x=>x.ok).length; rs.push({r, correct:c, total:PER_ROUND, pts:c*PTS}); } return rs;
+}
+function grade(p){
+  if(p>=90) return ["Outstanding!","Tuyệt vời! Em nắm rất vững kiến thức Unit 3. Hãy tiếp tục phát huy nhé!"];
+  if(p>=80) return ["Excellent!","Rất tốt! Chỉ cần ôn thêm vài điểm nhỏ là em sẽ đạt kết quả xuất sắc."];
+  if(p>=65) return ["Good Job!","Làm tốt lắm! Hãy xem lại các câu sai để tiến bộ hơn nữa."];
+  if(p>=50) return ["Keep Practising!","Em đã cố gắng rồi! Luyện tập thêm và xem lại các câu sai nhé."];
+  return ["Let's Review and Try Again!","Đừng nản lòng nhé! Hãy ôn lại từ vựng, ngữ pháp rồi thử chơi lại – em sẽ tiến bộ!"];
+}
+function showResult(){
+  setTheme(1);
+  const correct = S.results.filter(x=>x&&x.ok).length, wrong = TOTAL-correct, pct = correct/TOTAL*100;
+  const [g,msg] = grade(pct), rs = roundStats();
+  $("#rName").textContent = "👤 "+playerName; $("#rGrade").textContent = g; $("#rMsg").textContent = msg;
+  $("#rStats").innerHTML = [[S.score+" / 1500","Tổng điểm"],[correct,"Câu đúng"],[wrong,"Câu sai"],[pct.toFixed(1)+"%","Tỷ lệ chính xác"],[fmtTime(S.tEnd-S.t0),"Thời gian hoàn thành"]]
+    .map(([a,b])=>`<div class="stat"><b>${a}</b><span>${b}</span></div>`).join("");
+  $("#rTable").innerHTML = "<tr><th>Vòng chơi</th><th>Đúng</th><th></th><th style='text-align:right'>Điểm</th></tr>" + rs.map(x=>
+    `<tr><td>${ROUNDS[x.r].icon} ${ROUNDS[x.r].name.replace("ROUND "+x.r+" – ","R"+x.r+" · ")}</td><td>${x.correct}/${x.total}</td><td><div class="bar" style="--c:${ROUNDS[x.r].color}"><i style="width:${x.correct/x.total*100}%"></i></div></td><td class="n">${x.pts}/250</td></tr>`).join("");
+  const max = Math.max(...rs.map(x=>x.correct)), min = Math.min(...rs.map(x=>x.correct));
+  const best = rs.filter(x=>x.correct===max).map(x=>ROUNDS[x.r].short), weak = rs.filter(x=>x.correct===min).map(x=>ROUNDS[x.r].short);
+  $("#rTags").innerHTML = `<span class="tag best">🌟 Vòng tốt nhất: ${best.join(", ")} (${max}/25)</span>` +
+    (max===min ? `<span class="tag weak">📘 Các vòng có kết quả như nhau – hãy luyện đều nhé!</span>` : `<span class="tag weak">📘 Cần ôn thêm: ${weak.join(", ")} (${min}/25)</span>`);
+  $("#btnReview").style.display = wrong===0 ? "none" : "";
+  tone([[523,.12],[659,.12],[784,.12],[1047,.3]]); if(pct>=50) confetti();
+  show("screen-result");
+}
+function showReview(){
+  const list = S.order.map((q,i)=>({q,r:S.results[i]})).filter(x=>x.r && !x.r.ok);
+  $("#rvList").innerHTML = list.length ? list.map((x,k)=>`<div class="rv"><div class="qhead"><span>#${k+1} · ${ROUNDS[x.q.round].short}</span>${x.q.passage?`<span>📄 ${PASSAGES[x.q.passage].title}</span>`:""}</div>
+    <div class="q">${x.q.q}</div><div class="y">Em đã chọn: ${x.r.user||"(không có)"}</div><div class="a">Đáp án đúng: ${answerText(x.q)}</div><div class="e">${x.q.exp}</div></div>`).join("")
+    : "<p>Em không có câu nào sai. Tuyệt vời! 🎉</p>";
+  show("screen-review");
+}
+function goHome(){ $("#name").value = playerName || safeStore("e8u3name") || ""; setTheme(1); show("screen-start"); }
+
+/* ---------- init ---------- */
+document.addEventListener("DOMContentLoaded",()=>{
+  $("#roundsGrid").innerHTML = ROUNDS.slice(1).map((r,i)=>`<div style="--c:${r.color}">${r.icon} Round ${i+1}<br><span style="font-weight:500">${r.short}</span></div>`).join("");
+  const saved = safeStore("e8u3name"); if(saved) $("#name").value = saved;
+  setTheme(1); refreshSound();
+  document.querySelectorAll(".soundBtn").forEach(b=>b.addEventListener("click",()=>{ soundOn=!soundOn; refreshSound(); if(soundOn) tone([[660,.08]]); }));
+  $("#btnStart").addEventListener("click",startGame);
+  $("#name").addEventListener("keydown",e=>{ if(e.key==="Enter") startGame(); });
+  $("#btnGo").addEventListener("click",renderQ);
+  $("#btnSubmit").addEventListener("click",submit);
+  $("#btnNext").addEventListener("click",next);
+  $("#btnHome").addEventListener("click",()=>{ if(confirm("Quay về màn hình chính? Tiến trình hiện tại sẽ bị xóa.")) goHome(); });
+  $("#btnReview").addEventListener("click",showReview);
+  $("#btnBackRes").addEventListener("click",()=>show("screen-result"));
+  $("#btnAgain").addEventListener("click",newRun);
+  $("#btnRestart").addEventListener("click",goHome);
+  $("#btnPrint").addEventListener("click",()=>window.print());
+});
+</script>
+</body>
+</html>
